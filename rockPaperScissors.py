@@ -49,7 +49,7 @@ print("GAME RULES: \n"
 rock = 1
 paper = 2
 scissors = 3
-player1 = input("please enter your name")
+player1 = input("hello please enter your name")
 player2 = "computer"
 
 while True:
