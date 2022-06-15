@@ -14,7 +14,7 @@ I am a comment
 # ----------------------------------------------------------------------------------------------------------------------
 # Here you include all of your package imports (like random and time packages we've discussed about)
 # ----------------------------------------------------------------------------------------------------------------------
-import random
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Here you will write all of the functions (for later stages of the course
@@ -40,18 +40,38 @@ PAPER(2) vs ROCK(1)      --> PAPER(2) wins
 DO NOT ADD EXTRA OPTIONS (No lizard, no Spock.)
 """
 
-# print the instructions for the user to see:
+import random
+
 print("GAME RULES: \n"
       "ROCK(1) vs SCISSORS(3)   --> ROCK(1) wins\n"
       "SCISSORS(3) vs PAPER(2)  --> SCISSORS(3) win\n"
       "PAPER(2) vs ROCK(1)      --> PAPER(2) wins)\n")
+rock = 1
+paper = 2
+scissors = 3
+player1 = input("please enter your name")
+player2 = "computer"
 
-# The game will run in a WHILE loop.
-# The loop is infinite, and only the user has the power to stop it (when they say they don't want to play anymore)
 while True:
-    """
-      This is the game's heart. You'll need to think and use everything we've learned so far to make this game work.
-      Remember Python's rules ( the ':' after a statement, the indentation with loops and statements..)
-      
-      """
-    pass
+    user = input(f"{player1} please choose, 1 for rock , 2 for paper , 3 for scissors")
+    computer = random.randint(1, 3)
+    if user.isalpha() or int(user) not in range(1, 4):
+        print("invalid input")
+    else:
+        user = int(user)
+        if user == rock and computer == scissors:
+            print(f"{player1} is the winner")
+        elif user == scissors and computer == paper:
+            print(f"{player1} is the winner")
+        elif user == paper and computer == rock:
+            print(f"{player1} is the winner")
+        elif user == computer:
+            print("its a tie")
+        else:
+            print(f"{player2} is the winner")
+        game = input("do you want to play again? y/n.\n")
+        if game == 'y':
+            print("new game is begin")
+        else:
+            break
+
